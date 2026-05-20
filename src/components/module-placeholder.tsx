@@ -1,12 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "@tanstack/react-router";
 import { Sparkles } from "lucide-react";
 
-type Props = { title: string; description: string; backTo?: string };
-
-export function ModulePlaceholder({ title, description }: Props) {
+export function ModulePlaceholder({ title, description }: { title: string; description: string }) {
   return (
     <div className="space-y-5">
       <div>
@@ -20,7 +17,7 @@ export function ModulePlaceholder({ title, description }: Props) {
           </div>
           <h3 className="text-lg font-semibold">Módulo en construcción</h3>
           <p className="max-w-md text-sm text-muted-foreground">
-            Esta sección está lista en la arquitectura. Se conectará a Lovable Cloud para persistencia real en la siguiente iteración.
+            Esta sección ya está integrada en la arquitectura. Se conectará a Lovable Cloud para persistencia real en la siguiente iteración.
           </p>
           <Button asChild variant="outline" className="rounded-xl">
             <Link to="/">Volver al Dashboard</Link>
@@ -30,8 +27,3 @@ export function ModulePlaceholder({ title, description }: Props) {
     </div>
   );
 }
-
-// Per-route file uses this component
-export const Route = createFileRoute("/_placeholder")({
-  component: () => null,
-});
